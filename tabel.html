@@ -5,32 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9; /* Warna background yang lebih terang */
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            text-align: left;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50; /* Warna hijau terang */
+            color: white; /* Warna teks putih untuk kontras */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Warna abu-abu yang lebih terang untuk baris genap */
+        }
+    </style>
 </head>
 <body>
-    <h2 align="left">Daftar Mahasiswa</h2>
-    <table border="1">
-        <tr bgcolor="#999999"> 
-           <td width="100" align="center" rowspan="2">Nama Mahasiswa</td>
-            <td width="200" align="center" rowspan="2">Jurusan</td> 
-            <td width="100" align="center" colspan="2">Nilai</td> 
-            <td width="100" align="center" rowspan="2">Nilai Akhir</td> </tr>
-   <tr bgcolor="#999999">
-        <td width="100" align="center">UTS</td>
-         <td width="100" align="center">UAS</td> 
-       </tr> 
-       <tr>
-   <td>Paijio</td>
-    <td>TIK</td>
-     <td>80</td
-       > <td>75</td>
-        <td>B</td> 
-       </tr> <tr>
-   <td>Karsono</td>
-    <td>SI</td>
-     <td>85</td> 
-     <td>90</td>
-      <td>A</td> 
-   </tr> 
-</table> 
+    <h2>Daftar Mahasiswa</h2>
+    <table>
+        <tr>
+            <th width="100">Nama Mahasiswa</th>
+            <th width="200">Jurusan</th>
+            <th width="100" colspan="2">Nilai</th>
+            <th width="100">Nilai Akhir</th>
+        </tr>
+        <tr>
+            <td>Paijio</td>
+            <td>TIK</td>
+            <td>80</td>
+            <td>75</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>Karsono</td>
+            <td>SI</td>
+            <td>85</td>
+            <td>90</td>
+            <td>A</td>
+        </tr>
+    </table>
 </body>
 </html>
