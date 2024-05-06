@@ -5,12 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        .custom-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .custom-list li {
+            background-color: #fff;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-list li::before {
+            content: "\2022"; /* Simbol bulat hitam */
+            color: #007bff; /* Warna biru */
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .custom-list li p {
+            margin-top: 10px;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-    <p> Jenis Semut yang ada di Indonesia </p>
-    <ol type="a">
-        <li> Semut Rangrang</li>
-        <li> Semut Merah</li>
-        <li> Semut Hitam</li>
+    <div class="container">
+        <h2>Jenis Semut yang ada di Indonesia</h2>
+        <ol class="custom-list">
+            <li> Semut Rangrang (Oecophylla smaragdina)
+                <p>Semut rangrang adalah jenis semut yang dikenal akan kemampuannya dalam membentuk sarang dari daun-daunan yang disatukan dengan cara menjahit menggunakan larva sebagai benangnya.</p>
+            </li>
+            <li> Semut Merah (Solenopsis spp.)
+                <p>Semut merah adalah jenis semut yang memiliki badan berwarna merah dan biasanya hidup dalam koloni besar. Mereka dikenal karena bisa menyengat dengan rasa yang menyakitkan.</p>
+            </li>
+            <li> Semut Hitam (Dolichoderinae spp.)
+                <p>Semut hitam adalah kelompok semut yang umum ditemui di berbagai habitat. Mereka sering kali menjadi hama di rumah-rumah karena mencari makanan yang tersedia.</p>
+            </li>
+        </ol>
+    </div>
 </body>
 </html>
