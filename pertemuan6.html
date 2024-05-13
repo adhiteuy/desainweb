@@ -4,48 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            margin: 20px auto;
+            background-color: #fff;
+            border-collapse: collapse;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #ff8c00;
+            color: #fff;
+        }
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 4px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"], input[type="reset"] {
+            background-color: #ff8c00;
+            color: white;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #ffa500;
+        }
+    </style>
 </head>
 <body>
-    
-        <h2 align="center">Form Pendaftaran</h2>
-        <table border="1" bgcolor="#00FF00">
+    <h2>Form Pendaftaran</h2>
+    <table>
         <form method="post" action="proses.php">
-        <tr>
-        <td>Nama</td>
-        <td width="200"><input type="text" name="nama" size="10" /></td></tr>
-        <tr>
-        <td>Jenis Kelamin</td>
-        <td><select name="jk" size="1">
-        <option value="Laki-laki">Laki-laki</option>
-        <option value="Perempuan">Perempuan</option>
-        </select></td>
-        </tr>
-        <tr>
-        <td>Agama</td>
-        <td>
-        <input type="radio" name="hobby" value="Islam">Islam</option><br />
-        <input type="radio" name="hobby" value="Islam">Katholik</option><br />
-        <input type="radio" name="hobby" value="Islam">Protestan</option><br />
-        <input type="radio" name="hobby" value="Islam">Hindu</option><br />
-        <input type="radio" name="hobby" value="Islam">Budha</option>
-        </td>
-        </tr>
-        <tr>
-        <td>Hobby</td>
-        <td><input type="checkbox" name="hobby" value="Browsing" />Browsing<br /><input type="checkbox" name="hobby" value="Browsing" />Game<br />
-        <input type="checkbox" name="hobby" value="Browsing" />Olah Raga
-        </td>
-        </tr>
-        <tr>
-        <td>Alamat</td>
-        <td><textarea name="alamat" cols="20" rows="5"></textarea></td>
-        </tr>
-        <tr>
-        <td><input type="submit" value="Kirim" /></td>
-        <td><input type="reset" value="Batal" /></td>
-        </tr>
+            <tr>
+                <td>Nama</td>
+                <td><input type="text" name="nama" /></td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td>
+                    <select name="jk">
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Agama</td>
+                <td>
+                    <input type="radio" name="agama" value="Islam">Islam<br>
+                    <input type="radio" name="agama" value="Kristen">Kristen<br>
+                    <input type="radio" name="agama" value="Hindu">Hindu<br>
+                    <input type="radio" name="agama" value="Buddha">Buddha<br>
+                    <input type="radio" name="agama" value="Lainnya">Lainnya
+                </td>
+            </tr>
+            <tr>
+                <td>Hobby</td>
+                <td>
+                    <input type="checkbox" name="hobby[]" value="Browsing">Browsing<br>
+                    <input type="checkbox" name="hobby[]" value="Game">Game<br>
+                    <input type="checkbox" name="hobby[]" value="Olahraga">Olahraga
+                </td>
+            </tr>
+            <tr>
+                <td>Alamat</td>
+                <td><textarea name="alamat" cols="30" rows="5"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Kirim" />
+                    <input type="reset" value="Batal" />
+                </td>
+            </tr>
         </form>
-        </table>
-        
+    </table>
 </body>
 </html>
