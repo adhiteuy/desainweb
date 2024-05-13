@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Nilai dengan Diskon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        input[type="text"], input[type="number"], input[type="submit"] {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Input Nilai dengan Diskon</h2>
+        <form id="inputForm">
+            <input type="text" id="itemName" placeholder="Nama Barang">
+            <input type="number" id="itemPrice" placeholder="Harga Barang">
+            <input type="number" id="itemQuantity" placeholder="Jumlah Barang">
+            <input type="submit" value="Hitung">
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById("inputForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get input values
+            var itemName = document.getElementById("itemName").value;
+            var itemPrice = parseFloat(document.getElementById("itemPrice").value);
+            var itemQuantity = parseInt(document.getElementById("itemQuantity").value);
+
+            // Calculate total without discount
+            var total = itemPrice * itemQuantity;
+
+            // Calculate discount if quantity is 3 or more
+            var discount = 0;
+            if (itemQuantity >= 3) {
+                discount = 0.1 * total; // 10% discount
+            }
+
+            // Calculate total after discount
+            var finalTotal = total - discount;
+
+            // Display result
+            var resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "Nama Barang: " + itemName + "<br>";
+            resultDiv.innerHTML += "Total Harga: Rp " + total.toFixed(2) + "<br>";
+            resultDiv.innerHTML += "Diskon: Rp " + discount.toFixed(2) + "<br>";
+            resultDiv.innerHTML += "Total Bayar: Rp " + finalTotal.toFixed(2);
+        });
+    </script>
+</body>
+</html>

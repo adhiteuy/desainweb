@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan Gaji</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        input[type="number"], input[type="submit"] {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Perhitungan Gaji</h2>
+        <form id="inputForm">
+            <input type="number" id="totalHours" placeholder="Total Jam Kerja">
+            <input type="number" id="overtimeHours" placeholder="Total Jam Lembur">
+            <input type="submit" value="Hitung">
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById("inputForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get input values
+            var totalHours = parseInt(document.getElementById("totalHours").value);
+            var overtimeHours = parseInt(document.getElementById("overtimeHours").value);
+
+            // Calculate gaji per hari
+            var dailySalary = 50000;
+
+            // Calculate gaji lembur
+            var overtimeSalary = 0;
+            if (overtimeHours <= 2) {
+                overtimeSalary = overtimeHours * 25000;
+            } else {
+                overtimeSalary = overtimeHours * 35000;
+            }
+
+            // Calculate bonus uang makan jika total jam kerja >= 20
+            var mealAllowance = 0;
+            if (totalHours >= 20) {
+                mealAllowance = 5000;
+            }
+
+            // Hitung total gaji
+            var totalSalary = dailySalary + overtimeSalary + mealAllowance;
+
+            // Display result
+            var resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "Gaji Per Hari: Rp " + dailySalary + "<br>";
+            resultDiv.innerHTML += "Gaji Lembur: Rp " + overtimeSalary + "<br>";
+            resultDiv.innerHTML += "Bonus Uang Makan: Rp " + mealAllowance + "<br>";
+            resultDiv.innerHTML += "Total Gaji: Rp " + totalSalary;
+        });
+    </script>
+</body>
+</html>

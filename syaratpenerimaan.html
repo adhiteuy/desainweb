@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penerimaan Pegawai</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        input[type="text"], input[type="number"], select, input[type="submit"] {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Penerimaan Pegawai</h2>
+        <form id="inputForm">
+            <select id="gender">
+                <option value="male">Laki-laki</option>
+                <option value="female">Perempuan</option>
+            </select>
+            <input type="number" id="height" placeholder="Tinggi Badan (cm)">
+            <input type="number" id="weight" placeholder="Berat Badan (kg)">
+            <input type="number" id="ipk" placeholder="IPK">
+            <select id="education">
+                <option value="D3">D3</option>
+                <option value="S1">S1</option>
+            </select>
+            <input type="submit" value="Cek Kelayakan">
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById("inputForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get input values
+            var gender = document.getElementById("gender").value;
+            var height = parseInt(document.getElementById("height").value);
+            var weight = parseInt(document.getElementById("weight").value);
+            var ipk = parseFloat(document.getElementById("ipk").value);
+            var education = document.getElementById("education").value;
+
+            // Check eligibility based on criteria
+            var isEligible = false;
+            if ((gender === "male" && height >= 170 && height <= 179 && weight === height - 110 && ipk >= 3 && ipk <= 4 && (education === "D3" || education === "S1")) ||
+                (gender === "female" && height >= 160 && height <= 170 && weight === height - 110 && ipk >= 3 && ipk <= 4 && (education === "D3" || education === "S1"))) {
+                isEligible = true;
+            }
+
+            // Display result
+            var resultDiv = document.getElementById("result");
+            if (isEligible) {
+                resultDiv.innerHTML = "Selamat! Anda memenuhi syarat untuk menjadi pegawai.";
+            } else {
+                resultDiv.innerHTML = "Maaf, Anda tidak memenuhi syarat untuk menjadi pegawai.";
+            }
+        });
+    </script>
+</body>
+</html>
