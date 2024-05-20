@@ -61,7 +61,7 @@
                 <option value="11">November</option>
                 <option value="12">Desember</option>
             </select>
-            <input type="number" id="day" placeholder="Masukkan Tanggal">
+            <input type="number" id="day" placeholder="Masukkan Tanggal" min="1" max="31">
             <input type="submit" value="Lihat Ramalan">
         </form>
         <div id="result"></div>
@@ -148,6 +148,29 @@
                     return "";
             }
         }
+        
+        // Dynamically update max day based on selected month
+        document.getElementById("month").addEventListener("change", function() {
+            var month = parseInt(document.getElementById("month").value);
+            var dayInput = document.getElementById("day");
+            var maxDay;
+            
+            switch(month) {
+                case 2: // February
+                    maxDay = 28;
+                    break;
+                case 4: // April
+                case 6: // June
+                case 9: // September
+                case 11: // November
+                    maxDay = 30;
+                    break;
+                default:
+                    maxDay = 31;
+            }
+            
+            dayInput.setAttribute("max", maxDay);
+        });
     </script>
 </body>
 </html>
