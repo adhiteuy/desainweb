@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,39 +7,57 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
 
         .container {
-            max-width: 400px;
-            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
         }
 
         input[type="text"], input[type="number"], input[type="submit"] {
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 8px;
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
         }
 
         input[type="submit"] {
-            background-color: #4CAF50;
+            background-color: #007BFF;
             color: white;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: #0056b3;
         }
 
         #result {
-            margin-top: 10px;
+            margin-top: 20px;
             font-weight: bold;
+            background-color: #d1ecf1; /* Warna cerah */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
         }
     </style>
 </head>
@@ -47,9 +65,9 @@
     <div class="container">
         <h2>Input Nilai dengan Diskon</h2>
         <form id="inputForm">
-            <input type="text" id="itemName" placeholder="Nama Barang">
-            <input type="number" id="itemPrice" placeholder="Harga Barang">
-            <input type="number" id="itemQuantity" placeholder="Jumlah Barang">
+            <input type="text" id="itemName" placeholder="Nama Barang" required>
+            <input type="number" id="itemPrice" placeholder="Harga Barang" required>
+            <input type="number" id="itemQuantity" placeholder="Jumlah Barang" required>
             <input type="submit" value="Hitung">
         </form>
         <div id="result"></div>
@@ -78,10 +96,12 @@
 
             // Display result
             var resultDiv = document.getElementById("result");
-            resultDiv.innerHTML = "Nama Barang: " + itemName + "<br>";
-            resultDiv.innerHTML += "Total Harga: Rp " + total.toFixed(2) + "<br>";
-            resultDiv.innerHTML += "Diskon: Rp " + discount.toFixed(2) + "<br>";
-            resultDiv.innerHTML += "Total Bayar: Rp " + finalTotal.toFixed(2);
+            resultDiv.innerHTML = `
+                <p>Nama Barang: ${itemName}</p>
+                <p>Total Harga: Rp ${total.toFixed(2)}</p>
+                <p>Diskon: Rp ${discount.toFixed(2)}</p>
+                <p>Total Bayar: Rp ${finalTotal.toFixed(2)}</p>
+            `;
         });
     </script>
 </body>
